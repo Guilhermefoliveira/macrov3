@@ -71,6 +71,6 @@ Este é um aplicativo em Python para gerenciar macros que substituem atalhos (pr
 ```bash
 ├── expansions.json    # Arquivo de armazenamento das macros
 ├── script.py          # Código principal do aplicativo
-
+```
 Licença
 Este projeto está licenciado sob a licença MIT. Consulte o arquivo LICENSE para mais informações.
