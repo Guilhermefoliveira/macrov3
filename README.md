@@ -31,3 +31,46 @@ Este é um aplicativo em Python para gerenciar macros que substituem atalhos (pr
 - As bibliotecas necessárias podem ser instaladas com o seguinte comando:
   ```bash
   pip install keyboard pyperclip
+## Executar o Programa
+
+1. Baixe ou clone este repositório.
+2. Execute o script principal:
+   ```bash
+   python nome_do_script.py
+Funcionalidades
+Adicionar Macro
+Clique no botão Adicionar Macro.
+Preencha os campos:
+Atalho: Deve começar com !.
+Texto da Macro: Texto que será inserido quando o atalho for digitado.
+Clique em Salvar.
+Remover Macro
+Clique no botão Remover Macro.
+Informe o atalho (começando com !) que deseja remover.
+Clique em Remover.
+Substituição Automática
+Digite o atalho em qualquer editor de texto ou campo.
+Ao pressionar espaço ou enter, o atalho será substituído pelo texto correspondente.
+Exemplo
+Adicionando a Macro:
+Atalho: !email
+Texto da Macro: meuemail@exemplo.com
+Ao digitar !email e pressionar espaço, o texto será automaticamente expandido para meuemail@exemplo.com.
+Estrutura do Projeto
+
+├── expansions.json    # Arquivo de armazenamento das macros
+├── script.py          # Código principal do aplicativo
+
+Contribuições
+Sinta-se à vontade para contribuir! Sugestões, melhorias e correções são bem-vindas. Para contribuir:
+
+Faça um fork deste repositório.
+Crie uma nova branch:
+git checkout -b feature/minha-contribuicao
+
+Faça as alterações desejadas e envie um pull request.
+
+Licença
+Este projeto está licenciado sob a licença MIT. Consulte o arquivo LICENSE para mais informações.
+
+
