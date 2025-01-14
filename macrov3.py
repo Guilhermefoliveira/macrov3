@@ -20,7 +20,7 @@ current_typed = ""
 def on_key_press(event):
     global current_typed
     if event.name in ["space", "enter"]:
-        if current_typed.startswith("!") and current_typed in expansions:
+        if current_typed.startswith("/") and current_typed in expansions:
             for _ in range(len(current_typed) + 1):
                 keyboard.send("backspace")
             time.sleep(0.05)
@@ -37,8 +37,8 @@ def adicionar_macro_gui():
     def salvar_macro():
         shortcut = entrada_shortcut.get().strip()
         texto = entrada_texto.get("1.0", tk.END).strip()
-        if not shortcut.startswith("!"):
-            messagebox.showerror("Erro", "O atalho deve começar com '!'")
+        if not shortcut.startswith("/"):
+            messagebox.showerror("Erro", "O atalho deve começar com '/'")
             return
         if shortcut in expansions:
             messagebox.showerror("Erro", f"O atalho '{shortcut}' já existe.")
@@ -57,7 +57,7 @@ def adicionar_macro_gui():
     container = ttk.Frame(janela, padding=10)
     container.pack(fill="both", expand=True)
 
-    tk.Label(container, text="Atalho (começar com '!')").pack(anchor="w", pady=5)
+    tk.Label(container, text="Atalho (começar com '/')").pack(anchor="w", pady=5)
     entrada_shortcut = tk.Entry(container, width=30)
     entrada_shortcut.pack(fill="x", pady=5)
 
@@ -103,8 +103,8 @@ def editar_macro_gui():
         novo_shortcut = entrada_novo_shortcut.get().strip()
         novo_texto = entrada_texto.get("1.0", tk.END).strip()
 
-        if not novo_shortcut.startswith("!"):
-            messagebox.showerror("Erro", "O atalho deve começar com '!'")
+        if not novo_shortcut.startswith("/"):
+            messagebox.showerror("Erro", "O atalho deve começar com '/'")
             return
 
         if novo_shortcut in expansions and antigo_shortcut != novo_shortcut:
@@ -144,7 +144,7 @@ def editar_macro_gui():
     entrada_atual_shortcut.configure(state="readonly")
     entrada_atual_shortcut.pack(fill="x", pady=5)
 
-    tk.Label(container, text="Novo Atalho (começar com '!')").pack(anchor="w", pady=5)
+    tk.Label(container, text="Novo Atalho (começar com '/')").pack(anchor="w", pady=5)
     entrada_novo_shortcut = tk.Entry(container, width=30)
     entrada_novo_shortcut.insert(0, antigo_shortcut)
     entrada_novo_shortcut.pack(fill="x", pady=5)
