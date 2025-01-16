@@ -5,6 +5,8 @@ import pyperclip
 import time
 import json
 import os
+from pystray import Icon, MenuItem, Menu
+from PIL import Image, ImageDraw
 
 EXPANSIONS_FILE = "expansions.json"
 
@@ -16,6 +18,8 @@ with open(EXPANSIONS_FILE, "r", encoding="utf-8") as f:
     expansions = json.load(f)
 
 current_typed = ""
+bandeja_ativa = False
+
 
 def on_key_press(event):
     global current_typed
@@ -32,6 +36,7 @@ def on_key_press(event):
         current_typed = current_typed[:-1] if current_typed else ""
     elif len(event.name) == 1:
         current_typed += event.name
+
 
 def adicionar_macro_gui():
     def salvar_macro():
@@ -69,6 +74,7 @@ def adicionar_macro_gui():
     btn_container.pack(fill="x", pady=10)
     Button(btn_container, text="Salvar", command=salvar_macro).pack(side="right")
 
+
 def remover_macro_gui():
     def confirmar_remocao():
         shortcut = entrada_shortcut.get().strip()
@@ -97,72 +103,47 @@ def remover_macro_gui():
     btn_container.pack(fill="x", pady=10)
     Button(btn_container, text="Remover", command=confirmar_remocao).pack(side="right")
 
-def editar_macro_gui():
-    def salvar_edicao():
-        antigo_shortcut = entrada_atual_shortcut.get().strip()
-        novo_shortcut = entrada_novo_shortcut.get().strip()
-        novo_texto = entrada_texto.get("1.0", tk.END).strip()
-
-        if not novo_shortcut.startswith("/"):
-            messagebox.showerror("Erro", "O atalho deve começar com '/'")
-            return
-
-        if novo_shortcut in expansions and antigo_shortcut != novo_shortcut:
-            messagebox.showerror("Erro", f"O atalho '{novo_shortcut}' já existe.")
-            return
-
-        if antigo_shortcut in expansions:
-            del expansions[antigo_shortcut]
-        expansions[novo_shortcut] = novo_texto
-
-        with open(EXPANSIONS_FILE, "w", encoding="utf-8") as f:
-            json.dump(expansions, f, ensure_ascii=False, indent=4)
-
-        messagebox.showinfo("Sucesso", f"Macro '{antigo_shortcut}' editada com sucesso!")
-        atualizar_lista()
-        janela.destroy()
-
-    selected_item = lista_macros.selection()
-    if not selected_item:
-        messagebox.showerror("Erro", "Nenhuma macro selecionada.")
-        return
-
-    item = lista_macros.item(selected_item)
-    antigo_shortcut = item["values"][0]
-    antigo_texto = expansions[antigo_shortcut]
-
-    janela = Toplevel(root)
-    janela.title("Editar Macro")
-    janela.geometry("400x500")
-
-    container = ttk.Frame(janela, padding=10)
-    container.pack(fill="both", expand=True)
-
-    tk.Label(container, text="Atalho Atual").pack(anchor="w", pady=5)
-    entrada_atual_shortcut = tk.Entry(container, width=30)
-    entrada_atual_shortcut.insert(0, antigo_shortcut)
-    entrada_atual_shortcut.configure(state="readonly")
-    entrada_atual_shortcut.pack(fill="x", pady=5)
-
-    tk.Label(container, text="Novo Atalho (começar com '/')").pack(anchor="w", pady=5)
-    entrada_novo_shortcut = tk.Entry(container, width=30)
-    entrada_novo_shortcut.insert(0, antigo_shortcut)
-    entrada_novo_shortcut.pack(fill="x", pady=5)
-
-    tk.Label(container, text="Novo Texto da Macro").pack(anchor="w", pady=5)
-    entrada_texto = Text(container, width=40, height=10)
-    entrada_texto.insert("1.0", antigo_texto)
-    entrada_texto.pack(fill="both", expand=True, pady=5)
-
-    btn_container = ttk.Frame(container)
-    btn_container.pack(fill="x", pady=10)
-    Button(btn_container, text="Salvar", command=salvar_edicao).pack(side="right")
 
 def atualizar_lista():
     lista_macros.delete(*lista_macros.get_children())
     for key, val in expansions.items():
         texto_curto = (val[:50] + "...") if len(val) > 50 else val
         lista_macros.insert("", "end", values=(key, texto_curto))
+
+
+def criar_icone_bandeja():
+    def desenhar_icone():
+        largura = altura = 64
+        imagem = Image.new("RGB", (largura, altura), (255, 255, 255))
+        draw = ImageDraw.Draw(imagem)
+        draw.ellipse((8, 8, largura - 8, altura - 8), fill=(0, 120, 215))
+        draw.text((18, 18), "M", fill=(255, 255, 255))
+        return imagem
+
+    def restaurar_janela(icon, item):
+        root.deiconify()
+        icon.stop()
+
+    def sair(icon, item):
+        icon.stop()
+        root.quit()
+
+    menu = Menu(MenuItem("Restaurar", restaurar_janela), MenuItem("Sair", sair))
+    return Icon("Macros", desenhar_icone(), "Gerenciador de Macros", menu)
+
+
+def minimizar_para_bandeja(event=None):
+    global bandeja_ativa
+    if not bandeja_ativa:
+        bandeja_ativa = True
+        root.withdraw()
+        bandeja = criar_icone_bandeja()
+        bandeja.run()
+
+
+def confirmar_saida():
+    root.quit()
+
 
 root = tk.Tk()
 root.title("Gerenciador de Macros")
@@ -185,16 +166,11 @@ btn_adicionar.grid(row=2, column=0, sticky=tk.W, pady=5)
 btn_remover = ttk.Button(frame, text="Remover Macro", command=remover_macro_gui)
 btn_remover.grid(row=2, column=1, sticky=tk.E, pady=5)
 
-btn_editar = ttk.Button(frame, text="Editar Macro", command=editar_macro_gui)
-btn_editar.grid(row=2, column=2, sticky=tk.E, pady=5)
-
 atualizar_lista()
 
 keyboard.on_press(on_key_press)
 
-try:
-    root.mainloop()
-except KeyboardInterrupt:
-    print("Saindo...")
+root.protocol("WM_DELETE_WINDOW", confirmar_saida)
+root.bind("<Unmap>", minimizar_para_bandeja)
 
-keyboard.wait()
+root.mainloop()
