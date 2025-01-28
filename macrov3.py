@@ -20,7 +20,6 @@ with open(EXPANSIONS_FILE, "r", encoding="utf-8") as f:
 current_typed = ""
 bandeja_ativa = False
 
-
 def on_key_press(event):
     global current_typed
     if event.name in ["space", "enter"]:
@@ -42,15 +41,18 @@ def adicionar_macro_gui():
     def salvar_macro():
         shortcut = entrada_shortcut.get().strip()
         texto = entrada_texto.get("1.0", tk.END).strip()
+
         if not shortcut.startswith("/"):
             messagebox.showerror("Erro", "O atalho deve começar com '/'")
             return
         if shortcut in expansions:
             messagebox.showerror("Erro", f"O atalho '{shortcut}' já existe.")
             return
+
         expansions[shortcut] = texto
         with open(EXPANSIONS_FILE, "w", encoding="utf-8") as f:
             json.dump(expansions, f, ensure_ascii=False, indent=4)
+
         messagebox.showinfo("Sucesso", f"Macro '{shortcut}' adicionada com sucesso!")
         atualizar_lista()
         janela.destroy()
@@ -102,6 +104,62 @@ def remover_macro_gui():
     btn_container = ttk.Frame(container)
     btn_container.pack(fill="x", pady=10)
     Button(btn_container, text="Remover", command=confirmar_remocao).pack(side="right")
+
+
+def editar_macro_gui():
+    selecionados = lista_macros.selection()
+    if not selecionados:
+        messagebox.showerror("Erro", "Selecione uma macro na lista para editar.")
+        return
+    
+    item = lista_macros.item(selecionados[0])
+    old_shortcut = item["values"][0] 
+    old_text = expansions[old_shortcut]  
+
+    def confirmar_edicao():
+        new_shortcut = entrada_new_shortcut.get().strip()
+        new_text = entrada_new_text.get("1.0", tk.END).strip()
+
+        if not new_shortcut.startswith("/"):
+            messagebox.showerror("Erro", "O atalho deve começar com '/'")
+            return
+
+        if old_shortcut != new_shortcut and new_shortcut in expansions:
+            messagebox.showerror("Erro", f"O atalho '{new_shortcut}' já existe.")
+            return
+
+        expansions.pop(old_shortcut)
+        expansions[new_shortcut] = new_text
+
+        with open(EXPANSIONS_FILE, "w", encoding="utf-8") as f:
+            json.dump(expansions, f, ensure_ascii=False, indent=4)
+
+        messagebox.showinfo("Sucesso", f"Macro '{old_shortcut}' foi editada com sucesso!")
+        atualizar_lista()
+        janela.destroy()
+
+    janela = Toplevel(root)
+    janela.title("Editar Macro")
+    janela.geometry("400x400")
+
+    container = ttk.Frame(janela, padding=10)
+    container.pack(fill="both", expand=True)
+
+    tk.Label(container, text=f"Atalho antigo: {old_shortcut}").pack(anchor="w", pady=5)
+
+    tk.Label(container, text="Novo Atalho (começar com '/')").pack(anchor="w", pady=5)
+    entrada_new_shortcut = tk.Entry(container, width=30)
+    entrada_new_shortcut.pack(fill="x", pady=5)
+    entrada_new_shortcut.insert(0, old_shortcut)  
+
+    tk.Label(container, text="Novo Texto da Macro").pack(anchor="w", pady=5)
+    entrada_new_text = Text(container, width=40, height=10)
+    entrada_new_text.pack(fill="both", expand=True, pady=5)
+    entrada_new_text.insert("1.0", old_text)  
+
+    btn_container = ttk.Frame(container)
+    btn_container.pack(fill="x", pady=10)
+    Button(btn_container, text="Salvar", command=confirmar_edicao).pack(side="right")
 
 
 def atualizar_lista():
@@ -165,6 +223,9 @@ btn_adicionar.grid(row=2, column=0, sticky=tk.W, pady=5)
 
 btn_remover = ttk.Button(frame, text="Remover Macro", command=remover_macro_gui)
 btn_remover.grid(row=2, column=1, sticky=tk.E, pady=5)
+
+btn_editar = ttk.Button(frame, text="Editar Macro", command=editar_macro_gui)
+btn_editar.grid(row=2, column=2, sticky=tk.E, pady=5)
 
 atualizar_lista()
 
