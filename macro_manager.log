@@ -1,0 +1,95 @@
+2025-05-26 14:07:34,122 - __main__ - INFO - MainThread - Application starting... Running as admin: False
+2025-05-26 14:07:34,122 - __main__ - INFO - MainThread - Set DPI awareness to Per-Monitor v2.
+2025-05-26 14:07:34,122 - __main__ - INFO - MainThread - Modo Desenvolvimento: Usando expansions.json em: c:\Users\PC022\Documents\GitHub\macrov3\expansions.json
+2025-05-26 14:07:34,123 - __main__ - INFO - MainThread - Successfully loaded 12 macros from c:\Users\PC022\Documents\GitHub\macrov3\expansions.json
+2025-05-26 14:07:34,165 - __main__ - INFO - MainThread - Tk scaling call has been commented out/skipped in configurar_tema.
+2025-05-26 14:07:34,166 - __main__ - WARNING - MainThread - Could not definitively locate Azure theme structure. Defaulting Tcl auto_path to: c:\Users\PC022\Documents\GitHub\macrov3
+2025-05-26 14:07:34,166 - __main__ - INFO - MainThread - Adding to Tcl auto_path: c:\Users\PC022\Documents\GitHub\macrov3
+2025-05-26 14:07:34,166 - __main__ - INFO - MainThread - Attempting to 'package require azure'
+2025-05-26 14:07:34,171 - __main__ - ERROR - MainThread - Failed to load or set Azure Tcl theme: can't find package azure. Using default CustomTkinter theme.
+2025-05-26 14:07:34,188 - __main__ - INFO - MainThread - Updated macro list with 12 items
+2025-05-26 14:07:34,189 - __main__ - INFO - MainThread - Attempting to start listeners...
+2025-05-26 14:07:34,256 - __main__ - INFO - MainThread - Suggestion hotkey 'ctrl+space' registered. Remover function: <function add_hotkey.<locals>.remove_ at 0x0000024104897920>
+2025-05-26 14:07:34,256 - __main__ - INFO - MainThread - Keyboard on_press listener registered. Remover function: <function hook.<locals>.remove_ at 0x0000024104897B00>
+2025-05-26 14:07:34,256 - __main__ - INFO - MainThread - Starting Tkinter mainloop...
+2025-05-26 14:07:35,790 - __main__ - INFO - MainThread - Main window 'X' button clicked. Hiding to system tray.
+2025-05-26 14:07:35,790 - __main__ - INFO - MainThread - Escondendo janela para a bandeja do sistema.
+2025-05-26 14:07:35,795 - __main__ - DEBUG - TrayIconThread - Thread da bandeja iniciada.
+2025-05-26 14:07:35,797 - __main__ - DEBUG - TrayIconThread - Font arial.ttf for tray.
+2025-05-26 14:07:35,832 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing BlpImagePlugin
+2025-05-26 14:07:35,834 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing BmpImagePlugin
+2025-05-26 14:07:35,835 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing BufrStubImagePlugin
+2025-05-26 14:07:35,836 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing CurImagePlugin
+2025-05-26 14:07:35,837 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing DcxImagePlugin
+2025-05-26 14:07:35,840 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing DdsImagePlugin
+2025-05-26 14:07:35,846 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing EpsImagePlugin
+2025-05-26 14:07:35,848 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing FitsImagePlugin
+2025-05-26 14:07:35,850 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing FliImagePlugin
+2025-05-26 14:07:35,852 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing FpxImagePlugin
+2025-05-26 14:07:35,853 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Image: failed to import FpxImagePlugin: No module named 'olefile'
+2025-05-26 14:07:35,853 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing FtexImagePlugin
+2025-05-26 14:07:35,855 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing GbrImagePlugin
+2025-05-26 14:07:35,856 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing GifImagePlugin
+2025-05-26 14:07:35,856 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing GribStubImagePlugin
+2025-05-26 14:07:35,857 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing Hdf5StubImagePlugin
+2025-05-26 14:07:35,858 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing IcnsImagePlugin
+2025-05-26 14:07:35,861 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing IcoImagePlugin
+2025-05-26 14:07:35,863 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing ImImagePlugin
+2025-05-26 14:07:35,865 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing ImtImagePlugin
+2025-05-26 14:07:35,867 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing IptcImagePlugin
+2025-05-26 14:07:35,868 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing JpegImagePlugin
+2025-05-26 14:07:35,868 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing Jpeg2KImagePlugin
+2025-05-26 14:07:35,869 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing McIdasImagePlugin
+2025-05-26 14:07:35,870 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing MicImagePlugin
+2025-05-26 14:07:35,871 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Image: failed to import MicImagePlugin: No module named 'olefile'
+2025-05-26 14:07:35,872 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing MpegImagePlugin
+2025-05-26 14:07:35,873 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing MpoImagePlugin
+2025-05-26 14:07:35,881 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing MspImagePlugin
+2025-05-26 14:07:35,882 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing PalmImagePlugin
+2025-05-26 14:07:35,884 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing PcdImagePlugin
+2025-05-26 14:07:35,886 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing PcxImagePlugin
+2025-05-26 14:07:35,886 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing PdfImagePlugin
+2025-05-26 14:07:35,891 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing PixarImagePlugin
+2025-05-26 14:07:35,893 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing PngImagePlugin
+2025-05-26 14:07:35,894 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing PpmImagePlugin
+2025-05-26 14:07:35,894 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing PsdImagePlugin
+2025-05-26 14:07:35,896 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing QoiImagePlugin
+2025-05-26 14:07:35,898 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing SgiImagePlugin
+2025-05-26 14:07:35,899 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing SpiderImagePlugin
+2025-05-26 14:07:35,900 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing SunImagePlugin
+2025-05-26 14:07:35,901 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing TgaImagePlugin
+2025-05-26 14:07:35,901 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing TiffImagePlugin
+2025-05-26 14:07:35,902 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing WebPImagePlugin
+2025-05-26 14:07:35,903 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing WmfImagePlugin
+2025-05-26 14:07:35,904 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing XbmImagePlugin
+2025-05-26 14:07:35,906 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing XpmImagePlugin
+2025-05-26 14:07:35,907 - PIL.Image - DEBUG - Thread-3 (setup_handler) - Importing XVThumbImagePlugin
+2025-05-26 14:07:39,695 - __main__ - CRITICAL - TrayIconThread - --- CALLBACK DE TESTE DO MENU DA BANDEJA ACIONADO ---
+2025-05-26 14:07:39,700 - __main__ - DEBUG - TrayIconThread - Thread da bandeja finalizada.
+2025-05-26 14:07:39,748 - __main__ - INFO - MainThread - --- Initiating full application shutdown sequence ---
+2025-05-26 14:07:39,749 - __main__ - INFO - MainThread - Full shutdown: Calling manager.cleanup()
+2025-05-26 14:07:39,749 - __main__ - INFO - MainThread - Cleanup: Stopping manager and listeners...
+2025-05-26 14:07:39,750 - __main__ - INFO - MainThread - Attempting to stop listeners...
+2025-05-26 14:07:39,750 - __main__ - INFO - MainThread - Keyboard on_press listener unhooked.
+2025-05-26 14:07:39,750 - __main__ - INFO - MainThread - Suggestion hotkey 'ctrl+space' removed by stored removal function.
+2025-05-26 14:07:39,756 - __main__ - INFO - MainThread - Cleanup: No child processes to terminate.
+2025-05-26 14:07:39,756 - __main__ - INFO - MainThread - Cleanup: Manager cleanup process finished.
+2025-05-26 14:07:39,756 - __main__ - INFO - MainThread - Full shutdown: Calling _gui_cleanup()
+2025-05-26 14:07:39,756 - __main__ - INFO - MainThread - MacroGUI _gui_cleanup initiated.
+2025-05-26 14:07:39,756 - __main__ - INFO - MainThread - Tray thread already stopped or was not running/None at _gui_cleanup.
+2025-05-26 14:07:39,756 - __main__ - INFO - MainThread - MacroGUI _gui_cleanup finished.
+2025-05-26 14:07:39,757 - __main__ - INFO - MainThread - Full shutdown: Attempting to destroy Tkinter root window.
+2025-05-26 14:07:39,758 - __main__ - INFO - MainThread - Full shutdown: Tkinter root window destroy() called.
+2025-05-26 14:07:39,758 - __main__ - INFO - MainThread - --- Full application shutdown sequence substantially complete. Attempting sys.exit(0). ---
+2025-05-26 14:07:39,758 - __main__ - INFO - MainThread - App exited via SystemExit (code: 0). Atexit hooks should run.
+2025-05-26 14:07:39,758 - __main__ - INFO - MainThread - Main function's 'finally' block reached. Normal exit or post-exception.
+2025-05-26 14:07:39,758 - __main__ - INFO - MainThread - Main finally: Manager 'is_running' is false, indicating cleanup likely occurred.
+2025-05-26 14:07:39,758 - __main__ - INFO - MainThread - Application __main__ block finished.
+2025-05-26 14:07:39,761 - __main__ - INFO - MainThread - --- Initiating full application shutdown sequence ---
+2025-05-26 14:07:39,761 - __main__ - INFO - MainThread - Full shutdown: Manager cleanup skipped (manager not available, not running, or already cleaned up).
+2025-05-26 14:07:39,762 - __main__ - INFO - MainThread - Full shutdown: Calling _gui_cleanup()
+2025-05-26 14:07:39,763 - __main__ - INFO - MainThread - MacroGUI _gui_cleanup initiated.
+2025-05-26 14:07:39,763 - __main__ - INFO - MainThread - Tray thread already stopped or was not running/None at _gui_cleanup.
+2025-05-26 14:07:39,764 - __main__ - INFO - MainThread - MacroGUI _gui_cleanup finished.
+2025-05-26 14:07:39,764 - __main__ - WARNING - MainThread - Full shutdown: TclError during root.destroy(): can't invoke "winfo" command: application has been destroyed. Window might already be destroyed.
+2025-05-26 14:07:39,765 - __main__ - INFO - MainThread - --- Full application shutdown sequence substantially complete. Attempting sys.exit(0). ---

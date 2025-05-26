@@ -1,1 +1,0 @@
-('C:\\Users\\PC022\\Documents\\GitHub\\macrov3\\build\\main\\PYZ-00.pyz', [])
