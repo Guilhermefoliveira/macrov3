@@ -1,4 +1,4 @@
-# MacroManager CTk - Gerenciador de Macros Avançado
+# Macro Manager - Gerenciador de Macros Avançado
 
 Um aplicativo de desktop para Windows que permite criar, gerenciar e utilizar macros de texto para aumentar sua produtividade. Possui uma interface gráfica moderna construída com CustomTkinter, integração com a bandeja do sistema e diversas funcionalidades para facilitar o seu dia a dia.
 
