@@ -3,7 +3,6 @@
 Um aplicativo de desktop para Windows que permite criar, gerenciar e utilizar macros de texto para aumentar sua produtividade. Possui uma interface gráfica moderna construída com CustomTkinter, integração com a bandeja do sistema e diversas funcionalidades para facilitar o seu dia a dia.
 
 ![Placeholder para Screenshot do MacroManager](placeholder.png)
-*(Sugestão: Substitua `placeholder.png` por um screenshot real da sua aplicação em funcionamento)*
 
 ## Funcionalidades Principais
 
@@ -138,7 +137,7 @@ Este projeto utiliza o PyInstaller para criar um executável para Windows.
         Isso criará `dist/MacroManager.exe`. Este método pode ter um tempo de inicialização um pouco maior.
 
 ## Estrutura de Arquivos Esperada (para Desenvolvimento e Build)
-
+```
 SeuProjeto/
 ├── macrov3.py        (ou o nome do seu script principal)
 ├── macrov3.spec      (arquivo de especificação do PyInstaller)
@@ -153,7 +152,7 @@ SeuProjeto/
 ├── resources/        (opcional, para ícones)
 │   └── icon.ico
 └── README.md
-
+ ```
 
 ## Possíveis Melhorias Futuras
 
